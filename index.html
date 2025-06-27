@@ -7,26 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dark-theme">
-
   <div class="overlay" id="overlay"></div>
-
   <img src="img/logo.svg" alt="Logo Birth" class="logo-bienvenida" />
+  <button class="btn-avanzar" onclick="animar()">Avanzar ▶</button>
 
-  <button class="btn-avanzar" onclick="animar()">Avanzar ➤</button>
-
-  <audio id="sound" src="audio/startschuss-168562.mp3" preload="auto"></audio>
+  <audio id="sound" src="startschuss-168562.mp3" preload="auto"></audio>
 
   <script>
     function animar() {
-      document.getElementById('sound').play();
-      const overlay = document.getElementById('overlay');
-      overlay.classList.add('active');
-
+      document.getElementById("sound").play();
+      const overlay = document.getElementById("overlay");
+      overlay.classList.add("active");
       setTimeout(() => {
-        window.location.href = 'inicio.html';
+        window.location.href = "inicio.html";
       }, 1000);
     }
   </script>
-
 </body>
 </html>

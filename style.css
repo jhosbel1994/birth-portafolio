@@ -309,3 +309,133 @@ footer {
   background-color: #ffffff30;
   transform: translateY(-4px);
 }
+/* Pantalla de bienvenida (index.html) */
+.dark-theme {
+  background: radial-gradient(circle at top, #8b0000 0%, #000000 80%);
+  color: white;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.logo-bienvenida {
+  width: 250px;
+  margin-bottom: 30px;
+}
+
+.btn-avanzar {
+  background-color: red;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-avanzar:hover {
+  background-color: #cc0000;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 999;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+
+.dark-theme {
+  animation: fondoAnimado 8s infinite ease-in-out;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+}
+
+/* Estilo del logo en bienvenida */
+.logo-bienvenida {
+  width: 250px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Botón de avanzar */
+.btn-avanzar {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 2.5s ease-out;
+}
+
+
+
+/* Overlay animación */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #0d0d0d;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 10;
+}
+.overlay.active {
+  opacity: 1;
+}
+
+/* Animación de aparición general */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Animación de escalado para el logo */
+@keyframes escalarLogo {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Aplicar la animación solo al logo de bienvenida */
+.logo-bienvenida {
+  width: 250px;
+  animation: escalarLogo 1.8s ease-out;
+}
