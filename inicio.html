@@ -3,92 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienvenido a BIRTH</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0d0d0d;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .logo-bienvenida {
-      max-width: 400px;
-      margin-bottom: 50px;
-      z-index: 2;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    .btn-avanzar {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 15px 40px;
-      font-size: 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      z-index: 2;
-      animation: fadeIn 1.5s ease forwards;
-      opacity: 0;
-      animation-delay: 0.5s;
-    }
-
-    .btn-avanzar:hover {
-      background-color: #cc0000;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(to right, #0d0d0d, #ff0000);
-      transition: width 1s ease;
-      z-index: 1;
-    }
-
-    .overlay.active {
-      width: 100%;
-    }
-  </style>
+  <title>Proyectos | BIRTH</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
-  <img src="img/logo.svg" alt="Logo Birth" class="logo-bienvenida" />
-  <button class="btn-avanzar" onclick="animar()">Avanzar ➤</button>
+  <header>
+  <a href="index.html">
+  <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+</a>
+  <nav>
+    <a href="#proyectos" class="activo">Proyectos</a>
+    <a href="sobre.html">Sobre Birth</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
 
-  <audio id="sound" src="startschuss-168562.mp3" preload="auto"></audio>
 
-  <script>
-    function animar() {
-      document.getElementById('sound').play();
-      const overlay = document.getElementById('overlay');
-      overlay.classList.add('active');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 1000);
-    }
-  </script>
+  <h2 class="titulo-seccion" id="proyectos">Proyectos</h2>
+
+  <main class="galeria">
+    <a href="infinity.html"><img src="img/infiny.jpg" alt="Infinity"></a>
+    <a href="vinos.html"><img src="img/vinos.jpg" alt="Vinos Entre Tintos y Blanco"></a>
+    <a href="wappa.html"><img src="img/wappa.jpg" alt="Wappa"></a>
+    <a href="oclock.html"><img src="img/oclock.jpg" alt="O'Clock"></a>
+    <a href="acm.html"><img src="img/acm.jpg" alt="ACM Logística"></a>
+    <a href="look.html"><img src="img/look.jpg" alt="Look Phone"></a>
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 BIRTH. Todos los derechos reservados.</p>
+    <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
+  </footer>
 </body>
 </html>
