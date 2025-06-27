@@ -2,28 +2,47 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vinos | BIRTH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infinity | BIRTH</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+    <a href="inicio.html">
+      <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+    </a>
     <nav>
-      <a href="index.html">Proyectos</a>
-      <a href="#">Sobre Birth</a>
-      <a href="#">Contacto</a>
+      <a href="inicio.html">Proyectos</a>
+      <a href="sobre.html">Sobre Birth</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
-  <main style="text-align:center; padding: 60px 20px;">
-    <h1>Vinos</h1>
-    <p>Esta es la página de presentación del proyecto <strong>Vinos</strong>. Aquí puedes agregar detalles del diseño, imágenes adicionales, descripción del cliente, servicios ofrecidos, etc.</p>
-  </main>
+  <section class="proyecto-detalle">
+    <img src="img/INFINY EDITABLE.jpg" alt="Proyecto de infiny"onclick="abrirLightbox(this.src)" alt="Infinity 1" />
+    
+  </section>
 
-  <footer>
-    <p>© 2025 BIRTH. Todos los derechos reservados.</p>
-    <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
-  </footer>
+  <a href="vinos.html" class="next-project">
+    <img src="img/vinos.jpg" alt="Siguiente: Vinos" />
+    Siguiente: Vinos
+  </a>
+  <script>
+  function abrirLightbox(src) {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("imgLightbox");
+    img.src = src;
+    lightbox.style.display = "block";
+  }
+
+  function cerrarLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
 </body>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="cerrarLightbox()">&times;</span>
+  <img class="lightbox-content" id="imgLightbox">
+</div>
 </html>
