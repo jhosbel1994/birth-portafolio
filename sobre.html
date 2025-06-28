@@ -2,31 +2,174 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sobre Birth</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body class="dark-theme">
-  <header>
-  <a href="index.html">
-  <img src="img/logo.svg" alt="Logo Birth" class="logo" />
-</a>
-  <nav>
-    <a href="index.html">Proyectos</a>
-    <a href="sobre.html" class="activo">Sobre Birth</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
-</header>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  <section class="sobre-nosotros">
-    <h2>Sobre nosotros</h2>
-    <p><strong>Birth Studio</strong> no es solo diseño gráfico. Es transformación visual, estrategia de marca y diferenciación real. Creamos experiencias visuales que convierten ideas en identidades sólidas, memorables y con propósito.</p>
+    body {
+      background-color: #000;
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      flex-wrap: wrap;
+      background-color: #0d0d0d;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a[href="sobre.html"] {
+      color: red;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: justify;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: white;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      font-size: 14px;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* === MEDIA QUERIES === */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+      }
+
+      main {
+        padding: 0 15px;
+        font-size: 16px;
+      }
+
+      .whatsapp {
+        font-size: 12px;
+        padding: 10px 14px;
+        right: 10px;
+        bottom: 15px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header img {
+        height: 40px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .whatsapp {
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="inicio.html">
+      <img src="img/logo.svg" alt="Logo Birth" />
+    </a>
+    <nav>
+      <a href="inicio.html">Proyectos</a>
+      <a href="sobre.html">Sobre Birth</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sobre nosotros</h1>
+    <p><h2><strong style="color: red;">Birth Studio</strong></h2> no es solo diseño gráfico. Es transformación visual, estrategia de marca y diferenciación real. Creamos experiencias visuales que convierten ideas en identidades sólidas, memorables y con propósito.</p>
     <p>Somos un estudio creativo enfocado en construir marcas que no solo se vean bien, sino que sean imposibles de ignorar. Combinamos creatividad, análisis de mercado y visión estratégica para posicionar tu marca donde merece estar.</p>
     <p><strong>Profesionalismo absoluto</strong>, atención personalizada y compromiso total. Cada entrega está pensada para generar impacto, conectar con tu audiencia y dejar huella.</p>
-    <p><span style="color: red;">Tu marca merece más que un logo.</span> Merece identidad, coherencia y presencia.</p>
-  </section>
+    <p style="color: red;">Tu marca merece más que un logo.</p>
+    <p>Merece identidad, coherencia y presencia.</p>
+  </main>
+
   <footer>
     <p>© 2025 BIRTH. Todos los derechos reservados.</p>
   </footer>
+
+  <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
+
 </body>
 </html>

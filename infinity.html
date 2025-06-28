@@ -19,30 +19,44 @@
   </header>
 
   <section class="proyecto-detalle">
-    <img src="img/INFINY EDITABLE.jpg" alt="Proyecto de infiny"onclick="abrirLightbox(this.src)" alt="Infinity 1" />
-    
+    <!-- Botón de volver con flecha -->
+    <a href="inicio.html" class="btn-flecha">
+      <img src="img/flecha.png" alt="Volver" />
+    </a>
+
+    <!-- Imagen del proyecto -->
+    <img src="img/INFINY EDITABLE.jpg" class="imagen-proyecto animada" alt="Proyecto de infiny" onclick="abrirLightbox(this.src)" />
   </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+  <span class="close" onclick="cerrarLightbox()">X</span>
+    <img class="lightbox-content" id="imgLightbox" />
+  </div>
 
   <a href="vinos.html" class="next-project">
     <img src="img/vinos.jpg" alt="Siguiente: Vinos" />
     Siguiente: Vinos
   </a>
-  <script>
+
+<script>
   function abrirLightbox(src) {
     const lightbox = document.getElementById("lightbox");
     const img = document.getElementById("imgLightbox");
     img.src = src;
-    lightbox.style.display = "block";
+    lightbox.style.display = "flex";
   }
 
   function cerrarLightbox() {
     document.getElementById("lightbox").style.display = "none";
   }
+
+  // Cerrar con tecla Escape
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      cerrarLightbox();
+    }
+  });
 </script>
 </body>
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <span class="close" onclick="cerrarLightbox()">&times;</span>
-  <img class="lightbox-content" id="imgLightbox">
-</div>
 </html>

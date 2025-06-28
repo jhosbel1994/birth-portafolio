@@ -2,40 +2,259 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto | Birth Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto | BIRTH</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body class="dark-theme">
-  <header>
-  <a href="index.html">
-  <img src="img/logo.svg" alt="Logo Birth" class="logo" />
-</a>
-  <nav>
-    <a href="index.html">Proyectos</a>
-    <a href="sobre.html">Sobre Birth</a>
-    <a href="contacto.html" class="activo">Contacto</a>
-  </nav>
-</header>
-  <section class="formulario-contacto">
-  <h2 class="titulo-seccion">Contacto</h2>
-  <form action="https://formspree.io/f/tu-codigo" method="POST" class="formulario">
-    <input type="text" name="nombre" placeholder="Nombre" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-    <button type="submit" class="btn-enviar">Enviar</button>
-  </form>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  <div class="contacto-info">
-    <p>También puedes escribirnos al WhatsApp: <strong>+56 9 7724 7545</strong></p>
-    <p>Email: <strong>contacto@birthstudio.com</strong></p>
-  </div>
-</section>
+    body {
+      background-color: #000;
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      flex-wrap: wrap;
+      background-color: #0d0d0d;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a[href="contacto.html"] {
+      color: red;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-top: 30px;
+      animation: aparecer 1s ease-out;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #111;
+      color: white;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 6px 2px red;
+      border: 1px solid red;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+      transform: scale(1.02);
+    }
+
+    .info-contacto {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      font-size: 14px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+      }
+
+      main {
+        padding: 0 15px;
+        font-size: 16px;
+      }
+
+      .whatsapp {
+        font-size: 12px;
+        padding: 10px 14px;
+        right: 10px;
+        bottom: 15px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header img {
+        height: 40px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .whatsapp {
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="inicio.html">
+      <img src="img/logo.svg" alt="Logo Birth" />
+    </a>
+    <nav>
+      <a href="inicio.html">Proyectos</a>
+      <a href="sobre.html">Sobre Birth</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contáctanos</h1>
+    <form onsubmit="return validarFormulario(event)">
+      <input type="text" id="nombre" placeholder="Nombre completo" required>
+      <input type="email" id="correo" placeholder="Correo electrónico" required>
+      <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <div class="info-contacto">
+      <p>Email: contacto@birth.cl</p>
+      <p>WhatsApp: +56 9 7724 7545</p>
+      <p>Dirección: Talca, Región del Maule, Chile</p>
+    </div>
+  </main>
+
   <footer>
     <p>© 2025 BIRTH. Todos los derechos reservados.</p>
   </footer>
-  <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">
-  Chatea con nosotros
-</a>
+
+  <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
+
+  <script>
+    function validarFormulario(event) {
+      const nombre = document.getElementById("nombre").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+
+      if (!nombre || !correo || !mensaje) {
+        alert("Por favor, completa todos los campos.");
+        event.preventDefault();
+        return false;
+      }
+
+      alert("Mensaje enviado correctamente. Gracias por contactarnos.");
+      return true;
+    }
+  </script>
+
 </body>
 </html>

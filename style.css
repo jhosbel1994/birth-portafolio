@@ -5,25 +5,40 @@ body {
   color: white;
 }
 
+/* Asegura que el body ocupe toda la altura de la ventana */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Asegura que el contenido principal crezca */
+main {
+  flex: 1;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: #0d0d0d;
+  flex-wrap: wrap;
 }
 
 .logo {
   height: 60px;
 }
+
 nav {
   display: flex;
   align-items: center;
   gap: 20px;
   list-style: none;
   margin-left: auto;
+  flex-wrap: wrap;
 }
-
 
 nav a {
   margin-left: 20px;
@@ -40,33 +55,20 @@ nav a.activo {
   text-align: center;
   margin: 30px 0 10px;
 }
+
 .galeria {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Fuerza 3 columnas */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
   padding: 0 20px 60px;
-  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .galeria img {
   width: 100%;
-  max-width: 100%;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-
-
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Fuerza 3 columnas */
-  gap: 20px;
-  justify-items: center; /* Centra el contenido de cada celda */
-}
-
-
-.galeria img {
-  width: 100%;
+  height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
@@ -74,6 +76,7 @@ nav a.activo {
 .galeria img:hover {
   transform: scale(1.03);
 }
+
 
 footer {
   text-align: center;
@@ -84,15 +87,18 @@ footer {
 
 .whatsapp {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 150px;
+  right: 200px;
   background: #25d366;
   color: white;
   padding: 10px 15px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+
 .formulario-contacto {
   text-align: center;
   margin: 60px auto;
@@ -136,6 +142,7 @@ footer {
   font-size: 14px;
   color: #ccc;
 }
+
 .proyecto-infiny {
   display: flex;
   justify-content: center;
@@ -144,11 +151,24 @@ footer {
 }
 
 .proyecto-infiny img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 320px;  /* reduce el ancho máximo */
   height: auto;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 40px auto;
+  object-fit: contain;
 }
+
+
+.proyecto-infiny img:hover {
+  transform: scale(1.02);
+}
+
+
+
 .lightbox {
   display: none;
   position: fixed;
@@ -183,6 +203,7 @@ footer {
 .close:hover {
   color: #ff0000;
 }
+
 .proyecto-detalle {
   text-align: center;
   padding: 40px 20px;
@@ -202,45 +223,17 @@ footer {
   max-width: 800px;
   margin: 30px auto 0;
   text-align: center;
-  
-}
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.95);
 }
 
-.lightbox-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px; /* Espacio entre los links */
-  justify-content: flex-end; /* Para que estén alineados a la derecha */
+  gap: 30px;
+  justify-content: flex-end;
   align-items: center;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 .nav-links li a {
@@ -248,42 +241,12 @@ footer {
   text-decoration: none;
   font-weight: bold;
 }
+
 /* Botón flotante derecho: siguiente */
-.next-project {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  background-color: #ffffff10;
-  padding: 10px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  backdrop-filter: blur(5px);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  z-index: 1000;
-}
-
-.next-project img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-right: 10px;
-}
-
-.next-project:hover {
-  background-color: #ffffff30;
-  transform: translateY(-4px);
-}
-
-/* Botón flotante izquierdo: anterior */
+.next-project,
 .prev-project {
   position: fixed;
   bottom: 20px;
-  left: 20px;
   display: flex;
   align-items: center;
   background-color: #ffffff10;
@@ -297,6 +260,15 @@ footer {
   z-index: 1000;
 }
 
+.next-project {
+  right: 20px;
+}
+
+.prev-project {
+  left: 20px;
+}
+
+.next-project img,
 .prev-project img {
   width: 40px;
   height: 40px;
@@ -305,11 +277,13 @@ footer {
   margin-right: 10px;
 }
 
+.next-project:hover,
 .prev-project:hover {
   background-color: #ffffff30;
   transform: translateY(-4px);
 }
-/* Pantalla de bienvenida (index.html) */
+
+/* Pantalla de bienvenida */
 .dark-theme {
   background: radial-gradient(circle at top, #8b0000 0%, #000000 80%);
   color: white;
@@ -320,28 +294,25 @@ footer {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  animation: fondoAnimado 8s infinite ease-in-out;
 }
-
 
 .logo-bienvenida {
   width: 250px;
-  margin-bottom: 30px;
+  animation: escalarLogo 1.8s ease-out;
 }
 
 .btn-avanzar {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 18px;
   background-color: red;
   color: white;
-  padding: 15px 30px;
   border: none;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
+  border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.btn-avanzar:hover {
-  background-color: #cc0000;
+  animation: fadeIn 2.5s ease-out;
 }
 
 #overlay {
@@ -362,43 +333,6 @@ footer {
   pointer-events: all;
 }
 
-
-
-.dark-theme {
-  animation: fondoAnimado 8s infinite ease-in-out;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  color: white;
-}
-
-/* Estilo del logo en bienvenida */
-.logo-bienvenida {
-  width: 250px;
-  animation: fadeIn 2s ease-out;
-}
-
-/* Botón de avanzar */
-.btn-avanzar {
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  animation: fadeIn 2.5s ease-out;
-}
-
-
-
-/* Overlay animación */
 .overlay {
   position: absolute;
   inset: 0;
@@ -407,11 +341,11 @@ footer {
   transition: opacity 1s ease;
   z-index: 10;
 }
+
 .overlay.active {
   opacity: 1;
 }
 
-/* Animación de aparición general */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -422,7 +356,7 @@ footer {
     transform: scale(1);
   }
 }
-/* Animación de escalado para el logo */
+
 @keyframes escalarLogo {
   0% {
     transform: scale(0.6);
@@ -434,8 +368,126 @@ footer {
   }
 }
 
-/* Aplicar la animación solo al logo de bienvenida */
-.logo-bienvenida {
-  width: 250px;
-  animation: escalarLogo 1.8s ease-out;
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  header, nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    padding: 20px 10px;
+  }
+
+  .btn-avanzar {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .logo-bienvenida {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .next-project,
+  .prev-project {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .next-project img,
+  .prev-project img {
+    width: 32px;
+    height: 32px;
+  }
+}
+/* Imagen con animación */
+.imagen-proyecto {
+  max-width: 600px;
+  width: 40%;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: aparecer 0.8s ease-out forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Botón flecha volver */
+.btn-flecha {
+  position: absolute;
+  top: 100px;
+  left: 600px;
+  z-index: 100;
+}
+
+.btn-flecha img {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.btn-flecha:hover img {
+  transform: scale(1.1);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Imagen dentro del lightbox */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* Botón para cerrar */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  background-color: transparent;
+  border: none;
+}
+
+.close:hover {
+  color: #ff4444;
 }
