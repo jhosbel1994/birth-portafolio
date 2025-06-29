@@ -28,7 +28,7 @@ header {
 }
 
 .logo {
-  height: 60px;
+  height: 50px;
 }
 
 nav {
@@ -41,7 +41,7 @@ nav {
 }
 
 nav a {
-  margin-left: 20px;
+  margin-left: 18px;
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -87,8 +87,8 @@ footer {
 
 .whatsapp {
   position: fixed;
-  bottom: 150px;
-  right: 200px;
+  bottom: 10px;
+  right: 10px;
   background: #25d366;
   color: white;
   padding: 10px 15px;
@@ -441,8 +441,8 @@ footer {
 /* Botón flecha volver */
 .btn-flecha {
   position: absolute;
-  top: 100px;
-  left: 600px;
+  top: 163px;
+  left: 400px;
   z-index: 100;
 }
 
@@ -490,4 +490,33 @@ footer {
 
 .close:hover {
   color: #ff4444;
+}
+.prev-project,
+.next-project {
+  position: fixed;
+  bottom: 20px;
+  padding: 10px;
+  background-color: #111;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.prev-project {
+  left: 20px;
+}
+
+.next-project {
+  right: 20px;
+}
+
+.prev-project img,
+.next-project img {
+  width: 40px;
+  height: auto;
+  border-radius: 4px;
 }

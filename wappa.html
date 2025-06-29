@@ -2,28 +2,113 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wappa | BIRTH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infinity | BIRTH</title>
   <link rel="stylesheet" href="style.css" />
+ <style>
+  .prev-project,
+.next-project {
+  /* ...otras propiedades... */
+  font-size: 1rem; /* Puedes subir a 1.2rem o 1.4rem si quieres más grande */
+  font-weight: bold; /* Opcional: lo hace más grueso */
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 18px;
+  background-color: #111;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  width: 50px;
+  height: 50px; /* <- Este define el alto total del botón */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.prev-project {
+  left: 20px;
+}
+
+.next-project {
+  right: 20px;
+}
+
+.prev-project img,
+.next-project img {
+  width: 90%;
+  height: auto;
+  border-radius: 4px;
+}
+</style>
+
 </head>
 <body>
   <header>
-    <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+    <a href="inicio.html">
+      <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+    </a>
     <nav>
-      <a href="index.html">Proyectos</a>
-      <a href="#">Sobre Birth</a>
-      <a href="#">Contacto</a>
+      <a href="inicio.html">Proyectos</a>
+      <a href="sobre.html">Sobre Birth</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
-  <main style="text-align:center; padding: 60px 20px;">
-    <h1>Wappa</h1>
-    <p>Esta es la página de presentación del proyecto <strong>Wappa</strong>. Aquí puedes agregar detalles del diseño, imágenes adicionales, descripción del cliente, servicios ofrecidos, etc.</p>
-  </main>
+  <section class="proyecto-detalle">
+  <!-- Botón de volver con flecha -->
+  <a href="inicio.html" class="btn-flecha">
+    <img src="img/flecha.png" alt="Volver" />
+  </a>
 
-  <footer>
-    <p>© 2025 BIRTH. Todos los derechos reservados.</p>
-    <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
-  </footer>
+  <!-- Título descriptivo -->
+  <h2 class="descripcion-proyecto">Diseño de marca para<br> Restaurante de Comida Venezolana</h2>
+
+  <!-- Imagen del proyecto -->
+  <img src="img/wappatira.jpg" class="imagen-proyecto animada" alt="Proyecto Restaurante de Comida Venezolana" onclick="abrirLightbox(this.src)" />
+</section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+  <span class="close" onclick="cerrarLightbox()">X</span>
+    <img class="lightbox-content" id="imgLightbox" />
+  </div>
+
+<!-- Botón para ir al diseño anterior -->
+<a href="vinos.html" class="prev-project">
+  <img src="img/vinos.jpg" alt="Anterior: infiny" />
+  Anterior: infiny
+</a>
+
+  <a href="oclock.html" class="next-project">
+    <img src="img/oclock.jpg" alt="Siguiente: oclock" />
+    Siguiente: Vinos
+  </a>
+  
+
+<script>
+  function abrirLightbox(src) {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("imgLightbox");
+    img.src = src;
+    lightbox.style.display = "flex";
+  }
+
+  function cerrarLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  // Cerrar con tecla Escape
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      cerrarLightbox();
+    }
+  });
+</script>
 </body>
 </html>

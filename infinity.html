@@ -5,6 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Infinity | BIRTH</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+ .prev-project,
+.next-project {
+  /* ...otras propiedades... */
+  font-size: 1rem; /* Puedes subir a 1.2rem o 1.4rem si quieres más grande */
+  font-weight: bold; /* Opcional: lo hace más grueso */
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 18px;
+  background-color: #111;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  width: 50px;
+  height: 50px; /* <- Este define el alto total del botón */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.prev-project {
+  left: 20px;
+}
+
+.next-project {
+  right: 20px;
+}
+
+.prev-project img,
+.next-project img {
+  width: 90%;
+  height: auto;
+  border-radius: 4px;
+}
+</style>
 </head>
 <body>
   <header>
@@ -24,6 +65,9 @@
       <img src="img/flecha.png" alt="Volver" />
     </a>
 
+     <!-- Título descriptivo -->
+  <h2 class="descripcion-proyecto">Diseño de marca para Gimnasio de Crossfit</h2>
+
     <!-- Imagen del proyecto -->
     <img src="img/INFINY EDITABLE.jpg" class="imagen-proyecto animada" alt="Proyecto de infiny" onclick="abrirLightbox(this.src)" />
   </section>
@@ -33,6 +77,7 @@
   <span class="close" onclick="cerrarLightbox()">X</span>
     <img class="lightbox-content" id="imgLightbox" />
   </div>
+
 
   <a href="vinos.html" class="next-project">
     <img src="img/vinos.jpg" alt="Siguiente: Vinos" />
