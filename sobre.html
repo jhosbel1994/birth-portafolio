@@ -3,189 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sobre Birth</title>
+  <title>Sobre Nosotros | BIRTH</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      background-color: #000;
-      color: white;
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      background-color: #000;
+      color: #fff;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      flex-wrap: wrap;
       background-color: #0d0d0d;
+      padding: 20px;
+      position: relative;
     }
 
-    header img {
+    .logo {
       height: 50px;
     }
 
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      z-index: 10001;
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
 
-    nav a {
-      color: white;
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: rgb(255, 255, 255);
       text-decoration: none;
       font-weight: bold;
     }
 
-    nav a[href="sobre.html"] {
-      color: red;
+    .nav-links a.activo {
+      color: rgb(199, 11, 11);
     }
 
     main {
-      flex: 1;
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
-      text-align: justify;
-      animation: fadeInUp 1s ease-out forwards;
     }
 
     h1 {
       text-align: center;
       font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    h2 { 
+      color: rgb(198, 11, 11);
+      margin-top: 30px;
+    }
+
+    p {
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background-color: #111;
-      color: white;
     }
 
-    .whatsapp {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      font-size: 14px;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-
-    /* === MEDIA QUERIES === */
+    /* Responsive */
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+      .menu-toggle {
+        display: block;
       }
 
-      nav {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        margin: 10px 0;
+      }
+
+      .redes-sociales {
+        margin-top: 10px;
+        display: flex;
         justify-content: center;
-        width: 100%;
-        gap: 15px;
       }
 
-      main {
-        padding: 0 15px;
-        font-size: 16px;
-      }
-
-      .whatsapp {
-        font-size: 12px;
-        padding: 10px 14px;
-        right: 10px;
-        bottom: 15px;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header img {
-        height: 40px;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .whatsapp {
-        padding: 8px 12px;
+      .icono-red {
+        width: 20px;
+        margin: 0 5px;
       }
     }
   </style>
 </head>
 <body>
 
-   <header>
+  <header>
+    <a href="inicio.html">
+      <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+    </a>
 
-<a href="inicio.html">
-    <img src="img/logo.svg" alt="Logo Birth" class="logo" />
-  </a>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
 
-  <div class="menu-toggle" id="menu-toggle">☰</div>
-
-  <nav id="nav">
-    <a href="inicio.html">Proyectos de Branding</a>
-    <a href="Servicios.html">NuestrosServicios</a>
-    <a href="sobre.html" class="activo">Sobre Nosotros</a>
-    <a href="contacto.html">Contacto</a>
-<div class="redes-sociales">
-  <a href="https://www.instagram.com/bsp.cl" target="_blank">
-    <img src="servicios/img/instagram.png" alt="Instagram" class="icono-red" />
-  </a>
-  <a href="https://www.facebook.com/bsp.cl" target="_blank">
-    <img src="servicios/img/facebook.png" alt="Facebook" class="icono-red" />
-  </a>
-</div>
-
-  </nav>
-    </header>
+    <nav id="nav" class="nav-links">
+      <a href="inicio.html">Proyectos de Branding</a>
+      <a href="Servicios.html">Nuestros Servicios</a>
+      <a href="sobre.html" class="activo">Sobre Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <div class="redes-sociales">
+        <a href="https://www.instagram.com/bsp.cl" target="_blank">
+          <img src="servicios/img/instagram.png" alt="Instagram" class="icono-red" />
+        </a>
+        <a href="https://www.facebook.com/bsp.cl" target="_blank">
+          <img src="servicios/img/facebook.png" alt="Facebook" class="icono-red" />
+        </a>
+      </div>
+    </nav>
+  </header>
 
   <main>
-    <h1>Sobre nosotros</h1>
-    <p><h2><strong style="color: red;">Birth Studio</strong></h2> no es solo diseño gráfico. Es transformación visual, estrategia de marca y diferenciación real. Creamos experiencias visuales que convierten ideas en identidades sólidas, memorables y con propósito.</p>
-    <p>Somos un estudio creativo enfocado en construir marcas que no solo se vean bien, sino que sean imposibles de ignorar. Combinamos creatividad, análisis de mercado y visión estratégica para posicionar tu marca donde merece estar.</p>
-    <p><strong>Profesionalismo absoluto</strong>, atención personalizada y compromiso total. Cada entrega está pensada para generar impacto, conectar con tu audiencia y dejar huella.</p>
-    <p style="color: red;">Tu marca merece más que un logo.</p>
-    <p>Merece identidad, coherencia y presencia.</p>
-  </main>
+  <h1>Sobre Nosotros</h1>
 
-  <footer>
-    <p>© 2025 BIRTH. Todos los derechos reservados.</p>
-  </footer>
+  <h2 style="text-align:center;">Misión</h2>
+  <p>
+    En <strong>Birth Studio & Publicidad</strong> nacimos para dar vida a las ideas. Nuestra misión es 
+    <em>transformar sueños en marcas con identidad, propósito y alma</em>, creando diseños que conecten, comuniquen y perduren. 
+    Acompañamos a cada cliente como un aliado creativo, desde el primer boceto hasta el gran lanzamiento.
+  </p>
 
-  <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
+  <h2 style="text-align:center;">Visión</h2>
+  <p>
+    Queremos ser reconocidos como un estudio creativo referente en diseño gráfico y branding en Chile y Latinoamérica, 
+    donde las ideas <em>nacen, crecen y se convierten en historias visuales inolvidables</em>. Visualizamos un futuro donde cada 
+    emprendedor pueda contar con Birth como su primer paso para construir una marca poderosa y auténtica.
+  </p>
+
+  <h2 style="text-align:center;">Valores</h2>
+  <ul>
+    <li><strong>Creatividad con propósito:</strong> No solo diseñamos bonito, diseñamos con intención.</li>
+    <li><strong>Cercanía:</strong> Nos importas tú y tu proyecto. Creamos desde la empatía.</li>
+    <li><strong>Compromiso:</strong> Damos todo por lograr resultados que te enorgullezcan.</li>
+    <li><strong>Originalidad:</strong> Cada marca es única, y eso se nota en cada trazo.</li>
+    <li><strong>Pasión:</strong> Amamos lo que hacemos, y eso se refleja en nuestro trabajo.</li>
+  </ul>
+</main>
+
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 40px 20px; background-color: #111; border-top: 1px solid #333;">
+    <div style="flex: 1; min-width: 250px; margin: 10px;">
+      <h3 style="color: white; border-bottom: 2px solid red; padding-bottom: 5px;">Nosotros</h3>
+      <p style="color: #ffffff;">Somos Birth, un estudio de diseño gráfico y publicidad que da vida a marcas con identidad y propósito. Creamos soluciones visuales que inspiran, conectan y venden.</p>
+    </div>
+    <div style="flex: 1; min-width: 250px; margin: 10px;">
+      <h3 style="color: white; border-bottom: 2px solid red; padding-bottom: 5px;">Navegación</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; color: #ccc;">
+        <li><a href="inicio.html" style="color: #ccc; text-decoration: none;">Proyectos</a></li>
+        <li><a href="Servicios.html" style="color: #ccc; text-decoration: none;">Servicios</a></li>
+        <li><a href="sobre.html" style="color: #ccc; text-decoration: none;">Sobre Nosotros</a></li>
+        <li><a href="contacto.html" style="color: #ccc; text-decoration: none;">Contacto</a></li>
+      </ul>
+    </div>
+    <div style="flex: 1; min-width: 250px; margin: 10px;">
+      <h3 style="color: rgb(255, 255, 255); border-bottom: 2px solid red; padding-bottom: 5px;">Contáctanos</h3>
+      <p style="color: #ffffff;">📞 +56 9 7724 7545</p>
+      <p style="color: #ffffff;">✉ contacto@birthstudio.cl</p>
+      <p style="color: #ffffff;">📍 Talca, Chile</p>
+    </div>
+  </div>
+  <div style="text-align: center; padding: 20px; background-color: #0d0d0d; color: #aaa;">
+    © 2025 Birth Studio & Publicidad. Todos los derechos reservados.
+  </div>
+</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("menu-toggle");
+      const nav = document.getElementById("nav");
+
+      if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+          nav.classList.toggle("active");
+        });
+
+        const navLinks = nav.querySelectorAll("a");
+        navLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            nav.classList.remove("active");
+          });
+        });
+      }
+    });
+  </script>
 
 </body>
-<script src="script.js"></script>
-
 </html>

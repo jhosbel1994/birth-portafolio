@@ -212,23 +212,22 @@
     <img src="img/logo.svg" alt="Logo Birth" class="logo" />
   </a>
 
-  <div class="menu-toggle" id="menu-toggle">☰</div>
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
 
-  <nav id="nav">
-    <a href="inicio.html">Proyectos de Branding</a>
-    <a href="Servicios.html">NuestrosServicios</a>
-    <a href="sobre.html">Sobre Nosotros</a>
-    <a href="contacto.html" class="activo">Contacto</a>
-<div class="redes-sociales">
-  <a href="https://www.instagram.com/bsp.cl" target="_blank">
-    <img src="servicios/img/instagram.png" alt="Instagram" class="icono-red" />
-  </a>
-  <a href="https://www.facebook.com/bsp.cl" target="_blank">
-    <img src="servicios/img/facebook.png" alt="Facebook" class="icono-red" />
-  </a>
-</div>
-
-  </nav>
+<nav id="nav" class="nav-links">
+  <a href="inicio.html">Proyectos de Branding</a>
+  <a href="Servicios.html">Nuestros Servicios</a>
+  <a href="sobre.html">Sobre Nosotros</a>
+  <a href="contacto.html" class="activo">Contacto</a>
+  <div class="redes-sociales">
+    <a href="https://www.instagram.com/bsp.cl" target="_blank">
+      <img src="servicios/img/instagram.png" alt="Instagram" class="icono-red" />
+    </a>
+    <a href="https://www.facebook.com/bsp.cl" target="_blank">
+      <img src="servicios/img/facebook.png" alt="Facebook" class="icono-red" />
+    </a>
+  </div>
+</nav>
     </header>
 
   <main>
@@ -239,17 +238,34 @@
       <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
       <button type="submit">Enviar mensaje</button>
     </form>
-
-    <div class="info-contacto">
-      <p>Email: contacto@birth.cl</p>
-      <p>WhatsApp: +56 9 7724 7545</p>
-      <p>Dirección: Talca, Región del Maule, Chile</p>
-    </div>
   </main>
 
-  <footer>
-    <p>© 2025 BIRTH. Todos los derechos reservados.</p>
-  </footer>
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 40px 20px; background-color: #111; border-top: 1px solid #333;">
+    <div style="flex: 1; min-width: 250px; margin: 10px;">
+      <h3 style="color: white; border-bottom: 2px solid red; padding-bottom: 5px;">Nosotros</h3>
+      <p style="color: #ffffff;">Somos Birth, un estudio de diseño gráfico y publicidad que da vida a marcas con identidad y propósito. Creamos soluciones visuales que inspiran, conectan y venden.</p>
+    </div>
+    <div style="flex: 1; min-width: 250px; margin: 10px;">
+      <h3 style="color: white; border-bottom: 2px solid red; padding-bottom: 5px;">Navegación</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; color: #ccc;">
+        <li><a href="inicio.html" style="color: #ccc; text-decoration: none;">Proyectos</a></li>
+        <li><a href="Servicios.html" style="color: #ccc; text-decoration: none;">Servicios</a></li>
+        <li><a href="sobre.html" style="color: #ccc; text-decoration: none;">Sobre Nosotros</a></li>
+        <li><a href="contacto.html" style="color: #ccc; text-decoration: none;">Contacto</a></li>
+      </ul>
+    </div>
+    <div style="flex: 1; min-width: 250px; margin: 10px;">
+      <h3 style="color: rgb(255, 255, 255); border-bottom: 2px solid red; padding-bottom: 5px;">Contáctanos</h3>
+      <p style="color: #ffffff;">📞 +56 9 7724 7545</p>
+      <p style="color: #ffffff;">✉ contacto@birthstudio.cl</p>
+      <p style="color: #ffffff;">📍 Talca, Chile</p>
+    </div>
+  </div>
+  <div style="text-align: center; padding: 20px; background-color: #0d0d0d; color: #aaa;">
+    © 2025 Birth Studio & Publicidad. Todos los derechos reservados.
+  </div>
+</footer>
 
   <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
 
@@ -268,6 +284,7 @@
       alert("Mensaje enviado correctamente. Gracias por contactarnos.");
       return true;
     }
+    
   </script>
 
 </body>
