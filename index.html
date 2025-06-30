@@ -1,25 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="style.css" />
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bienvenido a BIRTH</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body class="dark-theme">
-  <div class="overlay" id="overlay"></div>
-  <img src="img/logo.svg" alt="Logo Birth" class="logo-bienvenida" />
-  <button class="btn-avanzar" onclick="animar()">Avanzar ▶</button>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
 
-  <audio id="sound" src="startschuss-168562.mp3" preload="auto"></audio>
+    .logo-bienvenida {
+      width: 250px;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: fadeInScale 2s ease-out forwards;
+      z-index: 2;
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .btn-avanzar {
+      margin-top: 30px;
+      padding: 10px 25px;
+      background: red;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      z-index: 2;
+    }
+
+    .btn-avanzar:hover {
+      background: #c70000;
+    }
+
+    .overlay {
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      z-index: 999;
+      animation: fadeOverlay 1s forwards;
+    }
+
+    @keyframes fadeOverlay {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* 🔥 Degradado animado permanente */
+    .degradado {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255,0,0,0.4) 0%, rgba(0,0,0,0.0) 100%);
+      z-index: 1;
+      animation: moverDegradado 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes moverDegradado {
+      0% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(-10%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="degradado"></div>
+  <div class="overlay" id="overlay"></div>
+
+  <img src="img/logo.svg" alt="Logo Birth" class="logo-bienvenida" />
+  <button class="btn-avanzar" onclick="animar()">Avanzar</button>
+
+  <audio id="sound" src="audio/mixkit-space-impact-774.wav" preload="auto" autoplay></audio>
 
   <script>
+    window.addEventListener("load", () => {
+      const audio = document.getElementById("sound");
+      audio.play().catch(() => {
+        console.log("Autoplay bloqueado por el navegador.");
+      });
+    });
+
     function animar() {
-      document.getElementById("sound").play();
       const overlay = document.getElementById("overlay");
       overlay.classList.add("active");
+
       setTimeout(() => {
         window.location.href = "inicio.html";
       }, 1000);

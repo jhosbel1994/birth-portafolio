@@ -7,23 +7,51 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
   
-  <a href="inicio.html">
-  <img src="img/logo.svg" alt="Logo Birth" class="logo" />
-</a>
-  <nav>
-    <a href="#proyectos" class="activo">Proyectos de Branding</a>
-      <a href="Nuestros Servicios.html">Nuestros Servicios</a>
+
+
+  <header>
+   <a href="inicio.html">
+    <img src="img/logo.svg" alt="Logo Birth" class="logo" />
+  </a>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <nav id="nav">
+    <a href="inicio.html" class="activo">Proyectos de Branding</a>
+    <a href="Servicios.html">NuestrosServicios</a>
     <a href="sobre.html">Sobre Nosotros</a>
     <a href="contacto.html">Contacto</a>
-   
+<div class="redes-sociales">
+  <a href="https://www.instagram.com/bsp.cl" target="_blank">
+    <img src="servicios/img/instagram.png" alt="Instagram" class="icono-red" />
+  </a>
+  <a href="https://www.facebook.com/bsp.cl" target="_blank">
+    <img src="servicios/img/facebook.png" alt="Facebook" class="icono-red" />
+  </a>
+</div>
+
   </nav>
-  </nav>
+  <div class="video-banner">
+  <video autoplay muted loop playsinline>
+    <source src="video/fondo.mp4" type="video/mp4" />
+    Tu navegador no soporta el video.
+  </video>
+  <div class="overlay-roja"></div>
+</div>
+
+<div class="descripcion-banner">
+  <h1>Bienvenido a Birth Studio & Publicidad</h1>
+  <p style="color: red;">Diseño con identidad y propósito</p>
+</div>
+
 </header>
 
 
- <h2 class="titulo-seccion" id="proyectos">Proyectos</h2> <br><br>
+
+<div class="overlay-titulo" id="proyectos">
+  <h2>Proyectos</h2>
+</div>
 
   <main class="galeria">
     <a href="infinity.html"><img src="img/infiny.jpg" alt="Infinity"></a>
@@ -36,9 +64,90 @@
 
   </main>
 
-  <footer>
-    <p>© 2025 BIRTH. Todos los derechos reservados.</p>
-    <a href="https://wa.me/56977247545" class="whatsapp" target="_blank">💬 Chatea con nosotros</a>
-  </footer>
+  <style>
+
+.custom-footer {
+  background-color: #111;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: 'Arial', sans-serif;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+}
+.footer-column {
+  flex: 1 1 250px;
+  margin: 10px;
+}
+.footer-column h3 {
+  border-bottom: 2px solid red;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-column ul li a:hover {
+  color: red;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+</style>
+<footer class="custom-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Nosotros</h3>
+      <p>Somos una empresa de diseño gráfico y publicidad con soluciones creativas para potenciar tu marca.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Navegación</h3>
+      <ul class="menu">
+  <li><a href="proyectos.html" class="menu-link">Proyectos</a></li>
+  <li><a href="servicios.html" class="menu-link">Nuestros Servicios</a></li>
+  <li><a href="sobre.html" class="menu-link">Sobre Nosotros</a></li>
+  <li><a href="contacto.html" class="menu-link">Contacto</a></li>
+</ul>
+
+    </div>
+    <div class="footer-column">
+      <h3>Contáctanos</h3>
+      <ul>
+        <li>📞 +56 9 7724 7545</li>
+        <li>📧 contacto@birthstudio.cl</li>
+        <li>📍 Talca, Chile</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Birth Studio & Publicidad. Todos los derechos reservados.</p>
+  </div>
+</footer>
+  <script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+  
 </body>
 </html>
