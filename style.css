@@ -1001,3 +1001,48 @@ body {
     margin: 0 5px;
   }
 }
+.nav-links a {
+  display: block;
+  padding: 12px 0;
+  text-align: center;
+}
+/* Ocultar por defecto el nav en móviles */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* ajusta si tu header es más alto */
+  right: 0;
+  background-color: #111;
+  padding: 20px;
+  z-index: 999;
+  border-radius: 5px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links a {
+  padding: 12px 10px;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #222;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+/* Ícono del menú hamburguesa */
+.menu-toggle {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  z-index: 1001;
+}
+
+
